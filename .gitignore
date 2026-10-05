@@ -1,0 +1,25 @@
+node_modules/
+.next/
+out/
+.vercel/
+.env*
+!.env.example
+keys/
+*.json.key
+**/*-keypair.json
+id.json
+program/target/
+target/
+*.so
+.DS_Store
+coverage/
+next-env.d.ts
+*.tsbuildinfo
+test-results/
+playwright-report/
+.devnet-keys/
+
+# local run logs
+build-run.txt
+e2e-run.txt
+e2e/playwright-report/
