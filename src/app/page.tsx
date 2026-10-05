@@ -84,7 +84,8 @@ function CodePanel() {
           initial={reduce ? false : { opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           transition={{ duration: 0.45, ease, delay: 0.9 }}
-          className="border-t bg-sev-critical/5"
+          // overflow-hidden: while height animates from 0 the text must not spill onto the score row.
+          className="overflow-hidden border-t bg-sev-critical/5"
         >
           <div className="flex items-start gap-3 px-4 py-3 text-sm">
             <span className="mt-0.5 rounded border border-sev-critical/40 px-1.5 py-px font-mono text-[11px] text-sev-critical">
@@ -215,13 +216,14 @@ export default function Home() {
           </Reveal>
           <ol className="mt-8 grid gap-8 md:grid-cols-4">
             {t.how.steps.map((s, i) => (
-              <Reveal key={s.t} delay={i * 0.06}>
-                <li className="list-none">
+              // <li> must be a direct child of <ol>, so the animation wrapper goes inside it.
+              <li key={s.t} className="list-none">
+                <Reveal delay={i * 0.06}>
                   <span className="font-mono text-sm text-primary">0{i + 1}</span>
                   <h3 className="mt-2 font-medium">{s.t}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
-                </li>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
           </ol>
         </div>

@@ -5,7 +5,7 @@ import { ConnectionProvider, WalletProvider } from "@solana/wallet-adapter-react
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import { I18nProvider } from "@/lib/i18n";
 import { RPC_URL } from "@/lib/chain";
-import "@solana/wallet-adapter-react-ui/styles.css";
+import "@/styles/wallet-adapter.css";
 
 // Phantom, Solflare, Backpack and other Wallet Standard wallets register
 // themselves, so no explicit adapter list is needed.

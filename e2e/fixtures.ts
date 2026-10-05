@@ -199,6 +199,15 @@ export const SCREENSHOT_DIR = path.join(__dirname, "test-results", "screenshots"
 
 export async function snap(page: Page, name: string) {
   fs.mkdirSync(SCREENSHOT_DIR, { recursive: true });
+  // Scroll through first so whileInView sections have revealed before the full-page capture.
+  await page.evaluate(async () => {
+    for (let y = 0; y < document.body.scrollHeight; y += 400) {
+      window.scrollTo(0, y);
+      await new Promise((r) => setTimeout(r, 40));
+    }
+    window.scrollTo(0, 0);
+  });
+  await page.waitForTimeout(700);
   await page.screenshot({ path: path.join(SCREENSHOT_DIR, `${name}.png`), fullPage: true });
 }
 

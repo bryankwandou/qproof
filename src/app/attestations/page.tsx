@@ -159,7 +159,8 @@ export default function AttestationsPage() {
         </p>
       )}
 
-      <div className="mt-8 overflow-x-auto rounded-lg border">
+      {/* relative: keeps the absolutely positioned sr-only header text inside the scroll box on narrow screens */}
+      <div className="relative mt-8 overflow-x-auto rounded-lg border">
         <table className="w-full min-w-[760px] text-sm">
           <thead className="border-b bg-muted/40 text-left text-xs text-muted-foreground">
             <tr>
