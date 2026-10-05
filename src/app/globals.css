@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.155 0.005 260);
+  --foreground: oklch(0.96 0.003 260);
+  --card: oklch(0.19 0.006 260);
+  --card-foreground: oklch(0.96 0.003 260);
+  --muted: oklch(0.23 0.006 260);
+  --muted-foreground: oklch(0.68 0.01 260);
+  --border: oklch(0.28 0.008 260);
+  --input: oklch(0.28 0.008 260);
+  --primary: oklch(0.84 0.13 170);
+  --primary-foreground: oklch(0.18 0.03 170);
+  --secondary: oklch(0.25 0.006 260);
+  --secondary-foreground: oklch(0.96 0.003 260);
+  --accent: oklch(0.25 0.006 260);
+  --accent-foreground: oklch(0.96 0.003 260);
+  --destructive: oklch(0.65 0.2 25);
+  --ring: oklch(0.84 0.13 170);
+  --radius: 0.6rem;
+  --sev-critical: oklch(0.65 0.21 25);
+  --sev-high: oklch(0.74 0.17 55);
+  --sev-medium: oklch(0.83 0.15 90);
+  --sev-low: oklch(0.75 0.1 230);
+  --sev-info: oklch(0.68 0.01 260);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-ring: var(--ring);
+  --color-sev-critical: var(--sev-critical);
+  --color-sev-high: var(--sev-high);
+  --color-sev-medium: var(--sev-medium);
+  --color-sev-low: var(--sev-low);
+  --color-sev-info: var(--sev-info);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-mono-jb);
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { color-scheme: dark; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection { background: color-mix(in oklch, var(--primary) 35%, transparent); }
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, color-mix(in oklch, var(--border) 45%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklch, var(--border) 45%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
+}
+
+/* wallet adapter button alignment with our design */
+.wallet-adapter-button-trigger { background: var(--primary) !important; color: var(--primary-foreground) !important; }
+.wallet-adapter-button { height: 2.25rem !important; font-size: 0.875rem !important; border-radius: var(--radius-md) !important; font-family: var(--font-inter) !important; padding: 0 0.9rem !important; }

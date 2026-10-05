@@ -1,0 +1,47 @@
+{
+  "name": "qproof",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "test:program": "cd program && cargo test",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.3.3",
+    "@solana/wallet-adapter-base": "^0.9.28",
+    "@solana/wallet-adapter-react": "^0.15.40",
+    "@solana/wallet-adapter-react-ui": "^0.9.40",
+    "@solana/web3.js": "^1.99.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^14.0.0",
+    "lucide-react": "^1.52.0",
+    "next": "^15.5.27",
+    "pako": "^3.0.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@playwright/test": "^1.63.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.4",
+    "@types/pako": "^2.0.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.5.27",
+    "litesvm": "^0.3.3",
+    "tailwindcss": "^4.3.3",
+    "typescript": "5.9",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3"
+  }
+}
