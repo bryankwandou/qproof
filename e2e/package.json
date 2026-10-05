@@ -1,0 +1,8 @@
+{
+  "name": "qproof-e2e-deps",
+  "private": true,
+  "description": "E2E-only dependencies kept out of the root package.json. Install with: npm --prefix e2e ci",
+  "dependencies": {
+    "@axe-core/playwright": "^4.13.0"
+  }
+}
